@@ -25,9 +25,9 @@ export default class Main {
     // 维护当前requestAnimationFrame的id
     this.aniId    = 0
     this.personalHighScore = null
-
+    this.GameEnterUI();
     // this.restart()
-    // this.login()
+    this.login()
   }
 
   login() {
@@ -44,7 +44,24 @@ export default class Main {
       }
     })
   }
+  GameEnterUI(){
+    databus.reset()
 
+    canvas.removeEventListener(
+      'touchstart',
+      this.touchHandler
+    )
+
+    this.bg       = new BackGround(ctx);
+
+    // 清除上一局的动画
+    window.cancelAnimationFrame(this.aniId);
+
+    this.aniId = window.requestAnimationFrame(
+      this.bindLoop,
+      canvas
+    )
+  }
   prefetchHighScore() {
     // 预取历史最高分
     db.collection('score').doc(`${window.openid}-score`).get()
@@ -71,7 +88,7 @@ export default class Main {
       this.touchHandler
     )
 
-    this.bg       = new BackGround(ctx)
+    // this.bg       = new BackGround(ctx)
     this.player   = new Player(ctx)
     this.gameinfo = new GameInfo()
     this.music    = new Music()
