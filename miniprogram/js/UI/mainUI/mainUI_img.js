@@ -1,7 +1,7 @@
 //主界面
 import Sprite from '../../base/sprite'
 
-const BG_IMG_SRC   = 'images/Textures/CrushBg/map.png'
+const BG_IMG_SRC   = 'images/Textures/Loading/map.png'
 // const BG_WIDTH     = canvas.width  
 // const BG_HEIGHT    = canvas.height
 
