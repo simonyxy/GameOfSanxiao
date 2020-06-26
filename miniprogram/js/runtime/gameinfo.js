@@ -2,9 +2,7 @@ const screenWidth  = window.innerWidth
 const screenHeight = window.innerHeight
 
 let atlas = new Image()
-let btnStart = new Image();
-atlas.src = 'images/Common.png'
-btnStart.src = 'images/button_start.png'
+// atlas.src = 'images/Common.png'
 
 export default class GameInfo {
   renderGameScore(ctx, score) {
@@ -57,29 +55,7 @@ export default class GameInfo {
       screenWidth / 2 - 40,
       screenHeight / 2 - 100 + 205
     )
-
-   
   }
 
-  renderStartBtn(ctx){
-    ctx.drawImage(
-      btnStart,
-      0, 0,
-      567,156,
-      screenWidth / 2-150,
-      screenHeight / 2 + 70,
-      283.5 , 78
-    )
-     /**
-     * 重新开始按钮区域
-     * 方便简易判断按钮点击
-     */
-    this.btnStartArea = {
-      startX: screenWidth / 2- 150,
-      startY:  screenHeight / 2 + 70,
-      endX  : screenWidth / 2  - 150+283.5,
-      endY  : screenHeight / 2 + 100 + 78
-    }
-  }
 }
 

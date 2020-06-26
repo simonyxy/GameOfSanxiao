@@ -1,7 +1,6 @@
-import GameStart  from './runtime/gameStart'
-
-//声明 canvas control 用来控制生成所有的图片 
-// let ctx   = canvas.getContext('2d')
+import GameStart  from './runtime/gameStart_Ctx'
+GameGlobal.BG_WIDTH     = canvas.width  
+GameGlobal.BG_HEIGHT    = canvas.height
 
 /*
  * 游戏主函数(进入口)

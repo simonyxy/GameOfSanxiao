@@ -1093,8 +1093,7 @@
 
 	function touchEventHandlerFactory(type) {
 	  return function (event) {
-	    var touchEvent = new TouchEvent(type)
-
+			var touchEvent = new TouchEvent(type)
 	    touchEvent.touches = event.touches
 	    touchEvent.targetTouches = Array.prototype.slice.call(event.touches)
 	    touchEvent.changedTouches = event.changedTouches

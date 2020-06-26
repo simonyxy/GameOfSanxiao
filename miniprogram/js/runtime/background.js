@@ -1,12 +1,19 @@
 import Sprite from '../base/sprite'
-
+import MainUICtx     from '../UI/mainUI/mainUI_Ctx'
 const screenWidth  = window.innerWidth
 const screenHeight = window.innerHeight
 
 const BG_IMG_SRC   = 'images/backgroud.png'
-const BG_WIDTH     = canvas.width  
-const BG_HEIGHT    = canvas.height
 
+
+/*
+  每一张图片都必须有的东西：
+    1.new时候传参的ctx、
+    2.render渲染方法，供外部的控制器使用
+    3.如果是按钮要绑定按钮事件在这个照片里面
+*/
+let btnStart = new Image();
+btnStart.src = 'images/button_start.png'
 /**
  * 游戏背景类只输出一张图
  * 提供update和render函数实现无限滚动的背景功能
@@ -32,7 +39,34 @@ export default class BackGround extends Sprite
       this.width,
       this.height,
     )
-
-    
+    this.renderStartBtn(ctx)
+   
   }
+
+  renderStartBtn(ctx){
+    ctx.drawImage(
+      btnStart,
+      0, 0,
+      567,156,
+      screenWidth / 2-150,
+      screenHeight / 2 + 70,
+      283.5 , 78
+    )
+     /**
+     * 重新开始按钮区域
+     * 方便简易判断按钮点击
+     */
+    this.btnStartArea = {
+      startX: screenWidth / 2- 150,
+      startY:  screenHeight / 2 + 70,
+      endX  : screenWidth / 2  - 150+283.5,
+      endY  : screenHeight / 2 + 100 + 78
+    }
+  }
+    StartBtnCallback(aniId){
+      //点击游戏开始后事件
+      console.log("向海傻逼~~~！") 
+      let mainUICtx = new MainUICtx()
+      canvas.removeEventListener('touchstart', this.touchHandler)
+    }
 }
