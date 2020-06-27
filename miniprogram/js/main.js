@@ -2,6 +2,11 @@ import GameStart  from './runtime/gameStart_Ctx'
 GameGlobal.BG_WIDTH     = canvas.width  
 GameGlobal.BG_HEIGHT    = canvas.height
 
+//初始化服务端
+wx.cloud.init({
+  traceUser: true,
+})
+
 /*
  * 游戏主函数(进入口)
  */
@@ -11,16 +16,18 @@ export default class Main {
     this.gameStart = new GameStart()
     this.gameStart.GameEnterUI()
     // this.login()
-
   }
 
   // login() {
   //   // 获取 openid
   //   wx.cloud.callFunction({
-  //     name: 'login',
+  //     name: 'login', 
   //     success: res => {
-  //       window.openid = res.result.openid
-  //       this.prefetchHighScore()
+  //       // window.openid = res.result.wx.onBLEPeripheralConnectionStateChanged((result) => {})
+  //       console.log('用户openid:', res.result.openid)
+  //       //保存用户openid
+  //       app.globalData.openid = res.result.openid
+
   //     },
   //     fail: err => {
   //       console.error(

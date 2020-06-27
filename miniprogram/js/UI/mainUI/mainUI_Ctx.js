@@ -40,7 +40,6 @@ export default class MainUICtx extends Sprite
       this.hasEventBind = true
       this.touchHandler = this.touchEventHandler.bind(this)
       canvas.addEventListener('touchstart', this.touchHandler)
-      this.showType = SHOW_TYPE.LOADING
     }
   }
   // 游戏开始的触摸事件处理逻辑
@@ -57,8 +56,7 @@ export default class MainUICtx extends Sprite
     {
       //点击游戏开始后事件
       console.log("进入游戏~~~！") 
-      // 清除这个画面的动画
-      window.cancelAnimationFrame(this.aniId);
+      this.showType = SHOW_TYPE.LOADING
       canvas.removeEventListener('touchstart', this.touchHandler)
     }
   }
@@ -69,6 +67,9 @@ export default class MainUICtx extends Sprite
     }
     else if(this.showType  == SHOW_TYPE.LOADING){
       this.loadingImg.render1(ctx)
+      
+      // 清除这个画面的动画
+      window.cancelAnimationFrame(this.aniId);
     }
   }
 }
