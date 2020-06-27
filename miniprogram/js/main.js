@@ -8,6 +8,8 @@ wx.cloud.init({
   traceUser: true,
 })
 GameGlobal.Start_BG_IMG = ''
+GameGlobal.GameStartbtn_IMG = ''
+
 
 /*
  * 游戏主函数(进入口)
@@ -17,7 +19,7 @@ export default class Main {
   constructor() {
     this.gameStart = new GameStart()
     this.login()
-
+    //加载背景图
     wx.cloud.downloadFile({
       fileID: 'cloud://luoke-01app.6c75-luoke-01app-1302512012/backgroud.png', // 文件 ID
       success: res => {
@@ -25,6 +27,16 @@ export default class Main {
         console.log(res.tempFilePath,"图片加载完成")
         Start_BG_IMG  = res.tempFilePath
         this.gameStart.GameEnterUI()
+      },
+      fail: console.error
+    })
+    //加载背景按钮
+    wx.cloud.downloadFile({
+      fileID: 'cloud://luoke-01app.6c75-luoke-01app-1302512012/button_start.png', // 文件 ID
+      success: res => {
+        // 返回临时文件路径
+        console.log(res.tempFilePath,"开始按钮图片加载完成")
+        GameStartbtn_IMG  = res.tempFilePath
       },
       fail: console.error
     })

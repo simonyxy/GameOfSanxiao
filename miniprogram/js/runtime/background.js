@@ -4,14 +4,13 @@ const screenWidth  = window.innerWidth
 const screenHeight = window.innerHeight
 
 
+let btnStart = new Image();
 /*
   每一张图片都必须有的东西：
     1.new时候传参的ctx、
     2.render渲染方法，供外部的控制器使用
     3.如果是按钮要绑定按钮事件在这个照片里面
 */
-let btnStart = new Image();
-btnStart.src = 'images/button_start.png'
 /**
  * 游戏背景类只输出一张图
  * 提供update和render函数实现无限滚动的背景功能
@@ -21,6 +20,8 @@ export default class BackGround extends Sprite
   
   constructor(ctx) {
     super(Start_BG_IMG, BG_WIDTH, BG_HEIGHT)
+    
+    btnStart.src = GameStartbtn_IMG
     console.log(Start_BG_IMG,"src")
     this.top = 0
     this.render(ctx)
