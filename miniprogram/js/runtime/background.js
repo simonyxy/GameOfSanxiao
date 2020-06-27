@@ -2,21 +2,7 @@ import Sprite from '../base/sprite'
 import MainUICtx     from '../UI/mainUI/mainUI_Ctx'
 const screenWidth  = window.innerWidth
 const screenHeight = window.innerHeight
-//初始化服务端
-wx.cloud.init({
-  env :'luoke-01app',
-  traceUser: true,
-})
-var BG_IMG_SRC= ''
-wx.cloud.downloadFile({
-  fileID: 'cloud://luoke-01app.6c75-luoke-01app-1302512012/backgroud.png', // 文件 ID
-  success: res => {
-    // 返回临时文件路径
-    console.log(res.tempFilePath,"图片加载完成")
-    BG_IMG_SRC  = res.tempFilePath
-  },
-  fail: console.error
-})
+
 
 /*
   每一张图片都必须有的东西：
@@ -34,8 +20,8 @@ export default class BackGround extends Sprite
 {
   
   constructor(ctx) {
-    super(BG_IMG_SRC, BG_WIDTH, BG_HEIGHT)
-    console.log(BG_IMG_SRC,"src")
+    super(Start_BG_IMG, BG_WIDTH, BG_HEIGHT)
+    console.log(Start_BG_IMG,"src")
     this.top = 0
     this.render(ctx)
   }
