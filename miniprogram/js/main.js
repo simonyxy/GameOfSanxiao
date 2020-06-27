@@ -4,6 +4,7 @@ GameGlobal.BG_HEIGHT    = canvas.height
 
 //初始化服务端
 wx.cloud.init({
+  env :'luoke-01app',
   traceUser: true,
 })
 
