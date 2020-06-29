@@ -45,13 +45,12 @@ export default class BackGround extends Sprite
   }
 
   renderStartBtn(ctx){
+    this.top = (this.top + 0.5 ) % 10 -20
     ctx.drawImage(
       btnStart,
-      0, 0,
-      567,156,
-      screenWidth / 2-150,
+      screenWidth / 2 - 150, 
       screenHeight / 2 + 70,
-      283.5 , 78
+      283.5 +this.top ,78 ,
     )
      /**
      * 重新开始按钮区域

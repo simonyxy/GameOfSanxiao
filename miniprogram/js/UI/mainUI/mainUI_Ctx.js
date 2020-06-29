@@ -29,7 +29,6 @@ export default class MainUICtx extends Sprite
   }
   
   loop(){
-    // console.log("loop of mainUI")
     this.render()
     this.aniId = window.requestAnimationFrame(
       this.bindLoop,

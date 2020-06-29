@@ -1,13 +1,11 @@
 //主界面
 import Sprite from '../../base/sprite'
 
-const BG_IMG_SRC   = 'images/Textures/Loading/map.png'
-// const BG_WIDTH     = canvas.width  
-// const BG_HEIGHT    = canvas.height
+const Map_IMG   = 'images/Textures/Loading/map.png'
 
 export default class MainUIImg extends Sprite{
   constructor(){
-    super(BG_IMG_SRC,BG_WIDTH, BG_HEIGHT)
+    super(Map_IMG,BG_WIDTH, BG_HEIGHT)
   }
   /**
    * 背景图重绘函数
