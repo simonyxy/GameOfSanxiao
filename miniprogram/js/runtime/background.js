@@ -24,6 +24,7 @@ export default class BackGround extends Sprite
     btnStart.src = GameStartbtn_IMG
     console.log(Start_BG_IMG,"src")
     this.top = 0
+    this.animInternal = 0
     this.render(ctx)
   }
   /**
@@ -45,12 +46,17 @@ export default class BackGround extends Sprite
   }
 
   renderStartBtn(ctx){
-    this.top = (this.top + 0.5 ) % 10 -20
+    this.animInternal = this.animInternal +1
+    if (this.animInternal %4 == 0 )
+    {
+      this.animInternal = 0
+      this.top = (this.top + 0.8 ) % 20 
+    }
     ctx.drawImage(
       btnStart,
-      screenWidth / 2 - 150, 
-      screenHeight / 2 + 70,
-      283.5 +this.top ,78 ,
+      screenWidth / 2 - 150 -this.top/2, 
+      screenHeight / 2 + 70 -this.top/4,
+      283.5 +this.top ,78+this.top/2,
     )
      /**
      * 重新开始按钮区域
@@ -67,6 +73,7 @@ export default class BackGround extends Sprite
       //点击游戏开始后事件
       console.log("向海傻逼~~~！") 
       let mainUICtx = new MainUICtx()
+      mainUICtx.constructor()
       canvas.removeEventListener('touchstart', this.touchHandler)
     }
 }

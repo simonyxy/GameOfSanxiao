@@ -1,7 +1,7 @@
 //主界面
-import Sprite from '../../base/sprite'
 import MainUIImg from './mainUI_img'
 import LoadingImg from './Loading_img'
+
 /**
  * 游戏背景类只输出一张图
  */
@@ -12,13 +12,14 @@ let SHOW_TYPE ={
     LOADING : 2,
 }
 let ctx   = canvas.getContext('2d')
-export default class MainUICtx extends Sprite 
+export default class MainUICtx 
 {
   //构造函数
   constructor() {
-    super()
     this.hasEventBind = false 
     this.showType = SHOW_TYPE.MAP
+    //做假的数据事件进入游戏
+    this.IntoGameTimer = 0
     this.bindLoop     = this.loop.bind(this)
     this.mainUIImg    = new MainUIImg()
     this.loadingImg   = new LoadingImg()
@@ -66,8 +67,8 @@ export default class MainUICtx extends Sprite
     }
     else if(this.showType  == SHOW_TYPE.LOADING){
       this.loadingImg.render1(ctx)
-      
       // 清除这个画面的动画
+      
       window.cancelAnimationFrame(this.aniId);
     }
   }
